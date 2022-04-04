@@ -20,6 +20,10 @@ spring:
             - Path=/api/**
           filters:
             - RewritePath=/(?<path>.*), /$\{path}
+            - name: Hystrix
+              args:
+                name: hystrixCc
+                fallbackUri: forward:/api/fallback
 
 management:
   endpoint:
